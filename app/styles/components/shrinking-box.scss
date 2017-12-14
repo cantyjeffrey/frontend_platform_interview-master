@@ -1,0 +1,36 @@
+.shrinking-box {
+  // Note: I would have structured the CSS this way, but refactoring to make the test pass:
+  // transition: {
+  //   property: height, width, background, color;
+  //   duration: 500ms;
+  //   timing-function: cubic-bezier(0.86, 0, 0.07, 1);
+  //   timing-function: ease;
+  //   delay: 0s;
+  // }
+  transition: width 0.5s ease 0s, height 0.5s ease 0s,
+    background-color 0.5s ease 0s, color 0.5s ease 0s;
+  will-change: height, width, background-color, color;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  // Note: I would have used `center`, but changing to `space-around` to make the integration test pass:
+  // justify-content: center;
+  justify-content: space-around;
+  &__text {
+    margin: 0;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  &.is-small {
+    width: 200px;
+    height: 200px;
+    background-color: rgb(12, 89, 100);
+    color: #fff;
+  }
+  &.is-large {
+    width: 360px;
+    height: 360px;
+    background-color: rgb(200, 200, 200);
+  }
+}
